@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.camousse</groupId>
-	<artifactId>camousse</artifactId>
+	<artifactId>camousse_back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>camousse</name>
 	<description>Application CaMousse</description>

@@ -1,14 +1,26 @@
 package com.camousse.camousse.bo;
 
+import javax.persistence.*;
+
 /**
  * BO représentant un utilisateur
  * @author theom
  *
  */
+@Entity
 public class Utilisateur {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	
 	private String nom;
+	
 	private String prenom;
+	
+	@ManyToOne
+    @JoinColumn(name="profil_id")
+	private Profil profil;
 	
 	public Utilisateur(String nom, String prenom) {
 		super();
@@ -16,6 +28,10 @@ public class Utilisateur {
 		this.prenom = prenom;
 	}
 	
+	public Utilisateur() {
+		super();
+	}
+
 	public String getNom() {
 		return nom;
 	}
@@ -28,5 +44,13 @@ public class Utilisateur {
 	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	public Profil getProfil() {
+		return profil;
+	}
+
+	public void setProfil(Profil profil) {
+		this.profil = profil;
 	}
 }

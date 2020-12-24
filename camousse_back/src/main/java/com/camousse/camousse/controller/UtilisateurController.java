@@ -15,7 +15,7 @@ import com.camousse.camousse.repository.UtilisateurRepository;
  * @author theom
  *
  */
-
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UtilisateurController {

@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Produit {
 	
@@ -17,12 +19,19 @@ public class Produit {
 	
 	private String image;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "produit")
-    Set<ProduitCaracteristique> produitCaracteristique;
+    private Set<ProduitTaxe> produitTaxe;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "produit")
-    Set<ProduitTaxe> produitTaxe;
+    private Set<ProduitCaracteristique> produitCaracteristique;
 	
+	private double prix;
+	
+	@ManyToOne
+	private Nomenclature nomenclature;
+
 	public Produit() {
 		super();
 	}
@@ -34,12 +43,6 @@ public class Produit {
 		this.image = image;
 		this.prix = prix;
 	}
-
-	private double prix;
-	
-	@ManyToOne
-    @JoinColumn(name="nomenclature_id")
-	private Nomenclature nomenclature;
 	
 	public int getId() {
 		return id;
@@ -87,6 +90,22 @@ public class Produit {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+	
+	public Set<ProduitCaracteristique> getProduitCaracteristique() {
+		return produitCaracteristique;
+	}
+
+	public void setProduitCaracteristique(Set<ProduitCaracteristique> produitCaracteristique) {
+		this.produitCaracteristique = produitCaracteristique;
+	}
+	
+	public Set<ProduitTaxe> getProduitTaxe() {
+		return produitTaxe;
+	}
+
+	public void setProduitTaxe(Set<ProduitTaxe> produitTaxe) {
+		this.produitTaxe = produitTaxe;
 	}
 
 }

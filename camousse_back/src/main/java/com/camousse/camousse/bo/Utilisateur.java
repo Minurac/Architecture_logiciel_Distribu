@@ -19,7 +19,6 @@ public class Utilisateur {
 	private String prenom;
 	
 	@ManyToOne
-    @JoinColumn(name="profil_id")
 	private Profil profil;
 	
 	public Utilisateur(String nom, String prenom) {

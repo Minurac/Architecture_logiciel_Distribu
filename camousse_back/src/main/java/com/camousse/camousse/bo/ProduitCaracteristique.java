@@ -2,6 +2,8 @@ package com.camousse.camousse.bo;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * Classe représentant la liaison Produit et Caracteristique
  * @author theom
@@ -15,14 +17,41 @@ public class ProduitCaracteristique {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name = "produit_id")
-	Produit produit;
+	private Caracteristique caracteristique;
+	
+	public Caracteristique getCaracteristique() {
+		return caracteristique;
+	}
 
+	public void setCaracteristique(Caracteristique caracteristique) {
+		this.caracteristique = caracteristique;
+	}
+
+	@JsonBackReference
 	@ManyToOne
-	@JoinColumn(name = "caracteristique_id")
-	Caracteristique caracteristique;
+	private Produit produit;
+	
+	public Produit getProduit() {
+		return produit;
+	}
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
 
 	private String valeur;
+	
+	public ProduitCaracteristique() {
+		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getValeur() {
 		return valeur;

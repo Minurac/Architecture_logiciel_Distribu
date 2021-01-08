@@ -16,7 +16,6 @@ public class Commande {
     Set<ProduitCommande> produitCommande;
 	
 	@ManyToOne
-    @JoinColumn(name="utilisateur_id")
 	private Utilisateur utilisateur;
 	
 	public Commande() {

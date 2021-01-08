@@ -2,6 +2,8 @@ package com.camousse.camousse.bo;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
  * Classe représentant la liaison Produit et Taxe
  * @author theom
@@ -14,11 +16,10 @@ public class ProduitTaxe {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
+	@JsonBackReference
 	@ManyToOne
-	@JoinColumn(name = "produit_id")
-	Produit produit;
+	private Produit produit;
 
 	@ManyToOne
-	@JoinColumn(name = "taxe_id")
-	Taxe taxe;
+	private Taxe taxe;
 }

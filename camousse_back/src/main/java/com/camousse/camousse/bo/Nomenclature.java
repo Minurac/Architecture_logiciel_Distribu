@@ -5,6 +5,15 @@ import javax.persistence.*;
 @Entity
 public class Nomenclature {
 	
+	public Nomenclature() {
+		super();
+	}
+
+	public Nomenclature(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;

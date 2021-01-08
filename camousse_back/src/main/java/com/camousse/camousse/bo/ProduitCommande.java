@@ -15,11 +15,9 @@ public class ProduitCommande {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name = "produit_id")
 	Produit produit;
 
 	@ManyToOne
-	@JoinColumn(name = "commande_id")
 	Commande commande;
 
 	private int quantite;

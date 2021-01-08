@@ -49,6 +49,26 @@ public class ProduitController {
 	}
 	
 	/**
+	 * Méthode qui retourne les produits qui commencent par str
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/lib/{str}")
+	public Iterable<Produit> getByLibelleLikeParam(@PathVariable String str) {
+		return produitRepository.findByLibelleContains(str);
+	}
+	
+	/**
+	 * Méthode qui retourne les produits ayant la nomenclature spécifiée
+	 * @param id
+	 * @return
+	 */
+	@GetMapping("/nmc/{id}")
+	public Iterable<Produit> getByNmc(@PathVariable Integer id) {
+		return produitRepository.findByNomenclature_Id(id);
+	}
+	
+	/**
 	 * Méthode qui supprime un produit
 	 * @param id
 	 */

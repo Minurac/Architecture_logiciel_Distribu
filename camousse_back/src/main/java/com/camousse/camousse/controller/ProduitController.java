@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.camousse.camousse.bo.Nomenclature;
 import com.camousse.camousse.bo.Produit;
 import com.camousse.camousse.repository.ProduitRepository;
 
